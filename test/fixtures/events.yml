@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  start_date: 2017-08-21 12:56:26
+  start_local: MyString
+  race_time: 2017-08-21 12:56:26
+  finish_local: MyString
+  value: 9.99
+  link: MyString
+
+two:
+  name: MyString
+  start_date: 2017-08-21 12:56:26
+  start_local: MyString
+  race_time: 2017-08-21 12:56:26
+  finish_local: MyString
+  value: 9.99
+  link: MyString
