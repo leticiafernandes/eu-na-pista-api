@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  protect_from_forgery with: :null_session
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # GET /events
