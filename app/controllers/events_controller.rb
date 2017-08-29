@@ -29,9 +29,9 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.json { render :show, status: :created, location: @event }
+        format.js { render :show, status: :created, location: @event }
       else
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+        format.js { render json: @event.errors, status: :unprocessable_entity }
       end
     end
   end
