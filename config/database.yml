@@ -22,6 +22,7 @@ test:
 
 production:
   <<: *default
+  adapter: postgresql
   database: d1bme8l4bg796
   host: ec2-184-73-174-10.compute-1.amazonaws.com
   username: eayaqzyinagyfn

@@ -27,13 +27,11 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
 
-    respond_to do |format|
       if @event.save
-        format.json { render :show, status: :created, location: @event }
+        render json: @event
       else
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+        render json: @event.errors
       end
-    end
   end
 
   # PATCH/PUT /events/1
