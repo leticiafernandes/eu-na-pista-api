@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Local text:</strong>
+  <%= @local.local_text %>
+</p>
+
+<p>
+  <strong>Comp text:</strong>
+  <%= @local.comp_text %>
+</p>
+
+<p>
+  <strong>Lat:</strong>
+  <%= @local.lat %>
+</p>
+
+<p>
+  <strong>Lng:</strong>
+  <%= @local.lng %>
+</p>
+
+<%= link_to 'Edit', edit_local_path(@local) %> |
+<%= link_to 'Back', locals_path %>

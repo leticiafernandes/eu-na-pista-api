@@ -10,18 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170821155626) do
+ActiveRecord::Schema.define(version: 20170904152559) do
 
   create_table "events", force: :cascade do |t|
     t.string "name"
     t.datetime "start_date"
-    t.string "start_local"
     t.time "race_time"
-    t.string "finish_local"
     t.decimal "value"
     t.string "link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "finish_local_id"
+    t.integer "start_local_id"
+    t.index ["finish_local_id"], name: "index_events_on_finish_local_id"
+    t.index ["start_local_id"], name: "index_events_on_start_local_id"
+  end
+
+  create_table "locals", force: :cascade do |t|
+    t.string "local_text"
+    t.string "comp_text"
+    t.decimal "lat", precision: 10, scale: 6
+    t.decimal "decimal", precision: 10, scale: 6
+    t.decimal "lng", precision: 10, scale: 6
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "place_id"
   end
 
 end

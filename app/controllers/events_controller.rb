@@ -22,10 +22,30 @@ class EventsController < ApplicationController
   def edit
   end
 
+  def get_local(id)
+    @local = Local.find(id)
+  end
+
   # POST /events
   # POST /events.json
   def create
     @event = Event.new(event_params)
+    byebug
+    
+    start_local = Local.where(["place_id = :param", { param: start_local_params["place_id"] }]).first
+    if not start_local
+      start_local = Local.new(start_local_params)
+      start_local.save
+    end
+
+    finish_local = Local.where(["place_id = :param", { param: finish_local_params["place_id"] }]).first
+    if not finish_local
+      finish_local = Local.new(finish_local_params)
+      finish_local.save
+    end
+
+    @event.start_local_id = start_local.id
+    @event.finish_local_id = finish_local.id
 
       if @event.save
         render json: @event
@@ -66,6 +86,38 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :start_date, :start_local, :race_time, :finish_local, :value, :link)
+      params
+        .require(:event)
+        .permit(
+          :name, 
+          :start_date, 
+          :race_time,  
+          :value, 
+          :link
+        )
+    end
+
+    def start_local_params
+      params
+        .require(:start_local)
+        .permit(
+          :place_id,
+          :local_text,
+          :comp_text,
+          :lat,
+          :lng
+        )
+    end
+
+    def finish_local_params
+      params
+        .require(:finish_local)
+        .permit(
+          :place_id,
+          :local_text,
+          :comp_text,
+          :lat,
+          :lng
+        )
     end
 end
