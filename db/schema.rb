@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 20170904152559) do
     t.string "local_text"
     t.string "comp_text"
     t.decimal "lat", precision: 10, scale: 6
-    t.decimal "decimal", precision: 10, scale: 6
     t.decimal "lng", precision: 10, scale: 6
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
