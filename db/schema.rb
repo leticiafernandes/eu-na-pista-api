@@ -22,8 +22,6 @@ ActiveRecord::Schema.define(version: 20170904152559) do
     t.datetime "updated_at", null: false
     t.integer "finish_local_id"
     t.integer "start_local_id"
-    t.index ["finish_local_id"], name: "index_events_on_finish_local_id"
-    t.index ["start_local_id"], name: "index_events_on_start_local_id"
   end
 
   create_table "locals", force: :cascade do |t|
