@@ -30,8 +30,6 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
-    byebug
-    
     start_local = Local.where(["place_id = :param", { param: start_local_params["place_id"] }]).first
     if not start_local
       start_local = Local.new(start_local_params)
