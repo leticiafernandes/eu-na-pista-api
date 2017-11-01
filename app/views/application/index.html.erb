@@ -6,6 +6,9 @@
 <body>
 	<main>
 		<h1>root</h1>
+		<% if user_signed_in? %>
+		<%= button_to "logout", destroy_user_session_path, method: :delete %>
+		<% end %>
 	</main>
 </body>
 </html>
