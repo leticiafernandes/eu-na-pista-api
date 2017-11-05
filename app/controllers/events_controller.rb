@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-	skip_before_action :verify_authenticity_token
+	skip_before_action :verify_authenticity_token, raise: false
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # GET /events
