@@ -15,10 +15,11 @@ class UserApiController < ApplicationController
 
 	def login
 		@user = User.where(email: params[:email]).first()
-		if sign_in(User.find(@user.id), scope: :user)
+		sign_in(User.find(@user.id), scope: :user)
+		if user_signed_in?
 			render json: @user,  status:  :created
 		else
-			render json: @user,  status:  :unprocessable_entity
+			render json: @user.errors, status: :unprocessable_entity
 		end
 	end
 end
