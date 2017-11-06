@@ -12,4 +12,13 @@ class UserApiController < ApplicationController
 	        render json: @user.errors, status: :unprocessable_entity
 	    end
 	end
+
+	def login
+		@user = User.where(email: params[:email]).first()
+		if sign_in(User.find(@user.id), scope: :user)
+			render json: @user,  status:  :created
+		else
+			render json: @user,  status:  :unprocessable_entity
+		end
+	end
 end
