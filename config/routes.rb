@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   post '/user_registration' => 'user_api#registration'
   post '/login' => 'user_api#login'
+  get '/find_by_date' => 'events#find_by_date'
   devise_for :users
   root to: "application#index"
   resources :locals

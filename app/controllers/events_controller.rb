@@ -8,6 +8,16 @@ class EventsController < ApplicationController
     @events = Event.order(created_at: :desc)
   end
 
+  def find_by_date
+    @events = Event.where(start_date: params[:start_date]+' 00:00:00')
+
+    if !@events.nil?
+      render json: @events,  status:  :ok
+    else
+      render json: @events.errors, status: :unprocessable_entity
+    end
+  end
+
   # GET /events/1
   # GET /events/1.json
   def show
