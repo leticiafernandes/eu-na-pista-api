@@ -1,2 +1,0 @@
-class UserEventXref < ApplicationRecord
-end
