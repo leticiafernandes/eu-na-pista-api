@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   post '/user_registration' => 'user_api#registration'
   post '/login' => 'user_api#login'
   post '/events' => 'events#create', defaults: { format: 'js' }
-  post '/user_event' => 'user_api#create_user_event', defaults: { format: 'js' }
+  post '/check_in' => 'user_api#check_in', defaults: { format: 'js' }
   
   ## get
   get '/find_by_date' => 'events#find_by_date'
